@@ -83,11 +83,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'devdb',
-        'USER': 'root',
-        'PASSWORD': '1',
-        'HOST':'10.1.1.210',
+        'NAME': 'devDB',
+        'USER': 'admin',
+        'PASSWORD': 'shinpingu1',
+        'HOST':'my-app-rds.cliozxl7hjlj.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
+        'OPTIONS':{
+            'init-command' : "SET sql_mod='STRICT_TRANS_TABLES",
+        }
     },
 }
 
