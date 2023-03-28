@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'story.apps.StoryConfig',
     'crispy_forms',
     'crispy_bootstrap5',
+    'storages',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -130,14 +131,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static/'),
-# )
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
-STATIC_ROOT = os.path.join(BASE_DIR,'.statics')
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'uploads')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -145,3 +142,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# S3 Storages
+DEFAULT_FILE_STORAGE = "config.custom_storages.UploadStorage"
+
+AWS_ACCESS_KEY_ID = os.environ.get("AKIA42BI4KDWMZXMXDWG")
+AWS_SECRET_ACCESS_KEY = os.environ.get("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")
+
+AWS_STORAGE_BUCKET_NAME = "whereto-s3"
+AWS_S3_REGION_NAME = "ap-northeast-2"
+
+AWS_DEFAULT_ACL = "public-read"
+AWS_AUTO_CREATE_BUCKET = False
+
+AWS_S3_CUSTOM_DOMAIN = (f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com")
