@@ -143,7 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# S3 Storages
+# S3 
 DEFAULT_FILE_STORAGE = "config.custom_storages.UploadStorage"
 
 AWS_ACCESS_KEY_ID = os.environ.get("AKIA42BI4KDWMZXMXDWG")
