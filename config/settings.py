@@ -84,15 +84,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wheretoDB',
+        'NAME': 'devDB',
         'USER': 'admin',
         'PASSWORD': 'shinpingu1',
         'HOST':'my-app-rds.cilozx17hjlj.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
-        'OPTIONS':{
-            'init-command' : "SET sql_mod='STRICT_TRANS_TABLES",
-        }
-    },
+        },  
 }
 
 
@@ -131,6 +128,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 MEDIA_URL = '/uploads/'
